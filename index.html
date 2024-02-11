@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>valentine</title>
+  <style>
+  #hahaha {
+      position: absolute;
+      top: 550px;
+      left: 310px;
+      width: 350px;
+      height: 500px
+      border: 5px solid black;
+      border-radius: 10px;
+      z-index: 1;
+  }
+  
+    .dalardev {
+      font-size: 40px;
+      color: blue;
+      position: fixed;
+      bottom: 0;
+    }
+    .title2 {
+       font-family: 'Courier New';
+        position: absolute;
+        white-space: nowrap;
+        left: 230px;
+        top: 460px;
+        font-size: 35px;
+    }
+    .title {
+        font-family: Bedrock;
+      text-shadow: 2px 2px black;
+        color: #fc036f;
+        position: absolute;
+        left: 425px;
+        top: 415px;
+      font-size: 40px;
+    }
+        #movingButton {
+            font-weight: bold;
+            font-size: 15px;
+            border: 2px solid black;
+        position: absolute;
+            top: 830px;
+            left: 500px;
+            width: 80px;
+            height: 40px;
+            border-radius:5px;
+            z-index: 1;
+        }
+        #popupImage {
+            display: none;
+            margin-top: 410px;
+            margin-left: 30px;
+            border-radius: 10px;
+            position: absolute;
+            top: 130px;
+            left: 10px;
+        }
+        #YES {
+            font-weight: bold;
+            font-size: 15px;
+            border: 2px solid black;
+            position: absolute;
+            top: 830px;
+            left: 370px;
+            border-radius: 5px;
+            width: 80px;
+            height: 40px;
+            z-index: 2;
+        }
+    #audioPopup {
+        display: none;
+        position: absolute;
+        top: 890px;
+        left: 330px;
+        border: 2px solid green;
+        border-radius: 30px;
+        z-index: 6;
+    }
+    #audioPopup2 {
+        position: absolute;
+        border: 2px solid red;
+        border-radius: 30px;
+        top: 970px;
+        left: 330px;
+        width: 300px;
+        z-index: 4;
+    }
+    #popupImageYES {
+        display: none;
+        position: absolute;
+        border: 2px solid black;
+        top: 540px;
+        left: 296px;
+        height: 340px;
+        width: 380px;
+        border-radius: 30px;
+        z-index:5;
+        }
+    </style>
+</head>
+<body>
+    <div>   
+    <img id="hahaha" src="https://i.ibb.co/ZzdhvFs/images-2.jpg">
+      <h1 class="title">HI IDOL<h1>
+      <p class="title2"> WILL YOU BE MY VALENTINE?</p>
+    </div>
+        <footer class="dalardev">@dalardev</footer>
+    <button id="YES" onClick="hideAllExceptSelected()">YES</button>
+    <button id="movingButton" onclick="moveButtonToPosition()">NO</button>
+    <img id="popupImage" src="https://i.ibb.co/Twzfxkq/d4934a836f1580de06c61ad9726f8bb3.jpg" alt="Image">
+    <img id="popupImageYES" src="https://i.ibb.co/fN3S1PS/received-1518234108922540.gif" alt="Image">
+    <audio id="audioPopup" controls style="display: none;">
+        <source src="https://www.dropbox.com/scl/fi/r0i49ndgxswb4lg6va7gl/ssstik.io_1707645018877.mp3?rlkey=c39kz4u1trj7ztrumd02fgp6q&dl=1" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        
+         function hideAllExceptSelected() {
+            alert('PAG SURE BAAAA'); // Change this to your desired alert message
+            const elementsToHide = document.querySelectorAll('button, img, audio');
+            elementsToHide.forEach(element => {
+                if (element.id !== 'audioPopup' && element.id !== 'popupImageYES') {
+                    element.style.display = 'none'; // Change this if you have different elements to hide
+                }
+            });
+        }
+        
+                const yesButton = document.getElementById('YES'); 
+        const audioPopup = document.getElementById('audioPopup'); 
+        const popupImage3 = document.getElementById('popupImageYES');
+        yesButton.addEventListener('click', () => { 
+            audioPopup.style.display = 'block'; 
+            popupImage3.style.display = 'block';
+        });
+                
+        let movesRemaining = 0;
+
+        function moveButtonToPosition() {
+            const button = document.getElementById("movingButton");
+            const image = document.getElementById("popupImage");
+
+            if (movesRemaining === 0) {
+                button.style.left = "150px";
+                button.style.top = "250px";
+                movesRemaining++;
+            } else if (movesRemaining === 1) {
+                // Show the image on the second tap
+                image.style.display = "block";
+                button.style.left = "750px";
+                button.style.top = "430px";
+                movesRemaining++;
+            } else if (movesRemaining === 2) {
+                // Add an image on the third tap
+                const newImage = document.createElement("img");
+                newImage.src = "https://i.ibb.co/bW7Tdsc/dabb2eb2a0d6a654bba1aebc7d92f432.jpg"; // Replace with your image URL
+                newImage.alt = "New Image";
+                newImage.style.position = "absolute";
+                newImage.style.top = "1050px";
+                newImage.style.left = "210px";
+                newImage.style.borderRadius = "10px";
+                newImage.style.width = "280px";
+                const newImage2 = document.createElement("img");
+                newImage2.src = "https://i.ibb.co/fQKK7y7/received-1531138680990069.gif"
+                newImage2.alt = "GIF";
+                newImage2.style.position = "absolute";
+                newImage2.style.top = "800px";
+                newImage2.style.left = "290px";                                                                                                       
+                newImage2.style.borderRadius  = "10px";
+                newImage2.style.width = "80px"; 
+                newImage2.style.transform = "rotate(90deg)";
+                newImage2.style.zIndex = 1;         
+                document.body.appendChild(newImage);
+document.body.appendChild(newImage2);
+
+                button.style.left = "130px";
+                button.style.top = "900px";
+                movesRemaining++;
+            } else if (movesRemaining === 3) {
+                const newImage = document.createElement("img");
+                newImage.src = "https://i.ibb.co/ryds90K/d7499024beaa6257bdda73bec726eef1.jpg"; // Replace with your image URL
+                newImage.alt = "New Image";
+                newImage.style.position = "absolute";
+                newImage.style.top = "130px";
+                newImage.style.left = "720px";
+                newImage.style.borderRadius = "10px";
+                newImage.style.width = "250px";
+                document.body.appendChild(newImage);
+
+                button.style.left = "370px";
+                button.style.top = "813px";
+                movesRemaining++;
+            } else if (movesRemaining === 4) {
+            const newImage = document.createElement("img");
+                newImage.src = "https://i.ibb.co/3SBgwnq/received-7000182650001956.gif"; // Replace with your image URL
+                newImage.alt = "New Image";
+                newImage.style.position = "absolute";
+                newImage.style.top = "540px";
+                newImage.style.left = "286px";
+                newImage.style.borderRadius = "10px";
+                newImage.style.border = "3px solid black";
+                newImage.style.zIndex = "3";
+                newImage.style.width = "410px";
+                newImage.style.height = "380";
+    // Create the audio element
+    const audioPopup2 = document.createElement("audio");
+    audioPopup.id = "audioPopup2";
+    audioPopup.controls = true;
+    audioPopup.style.display = 'block';
+    audioPopup.src = "https://www.dropbox.com/scl/fi/xj1gdrerv33rrruqx8kla/videoplayback.mp3?rlkey=h12n55bjkf0mvrxnep80zseb6&dl=1"; // Replace with your audio file URL
+    document.body.appendChild(audioPopup);
+
+    // Reset the position on the 5th tap
+    button.style.left = "200px";
+    button.style.top = "100px";
+              document.body.appendChild(newImage);
+                // Reset the position on the 5th tap
+                button.style.left = "500px";
+                button.style.top = "830px";
+                movesRemaining = 0; // Reset for the next cycle
+            }
+        }
+    </script>
+  
+</body>
+</html>
